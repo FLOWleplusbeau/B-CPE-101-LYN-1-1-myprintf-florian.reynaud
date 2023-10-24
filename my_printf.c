@@ -85,7 +85,7 @@ static int do_flag(char *str, int i, va_list list, int *length)
             my_putnbr_base(va_arg(list,unsigned int), "0123456789ABCDEF");
             return 1;
         case 'n':
-            flag_n(length, va_arg(list,int *));
+            *(va_arg(list, int *)) = length;
             return 1;
         default:
             my_putchar('%', length);
