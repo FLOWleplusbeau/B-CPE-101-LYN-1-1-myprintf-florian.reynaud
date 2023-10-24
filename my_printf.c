@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2023
-** B-CPE-101-LYN-1-1-miniprintf-florian.reynaud
+** B-CPE-101-LYN-1-1-mywprintf-florian.reynaud
 ** File description:
-** my_mini_printf
+** my_printf
 */
 #include <stdarg.h>
 #include <unistd.h>
@@ -48,14 +48,23 @@ static int my_put_nbr(int nb, int *length)
     return (0);
 }
 
+static int flag_n(int nb, int *c)
+{
+    int *d = &c;
+
+    &d = nb;
+    return 0;
+}
+
 static int do_flag(char *str, int i, va_list list, int *length)
 {
     switch (str[i + 1]){
         case 'd':
-            my_put_nbr(va_arg(list, int), length);
-            return 1;
         case 'i':
             my_put_nbr(va_arg(list, int), length);
+            return 1;
+        case 'u':
+            my_put_nbr(va_arg(list, unsigned int), length);
             return 1;
         case 's':
             my_putstr(va_arg(list, char *), length);
@@ -65,6 +74,18 @@ static int do_flag(char *str, int i, va_list list, int *length)
             return 1;
         case '%':
             my_putchar('%', length);
+            return 1;
+        case 'o':
+            my_putnbr_base(va_arg(list,unsigned int), "01234567");
+            return 1;
+        case 'x':
+            my_putnbr_base(va_arg(list,unsigned int), "0123456789abcdef");
+            return 1;
+        case 'X':
+            my_putnbr_base(va_arg(list,unsigned int), "0123456789ABCDEF");
+            return 1;
+        case 'n':
+            flag_n(length, va_arg(list,int *));
             return 1;
         default:
             my_putchar('%', length);
@@ -83,7 +104,7 @@ static int do_error_flag(char *str, int i)
     }
 }
 
-static int mini_printf_error(char *format)
+static int printf_error(char *format)
 {
     int error = 0;
 
@@ -99,12 +120,12 @@ static int mini_printf_error(char *format)
     return 0;
 }
 
-int mini_printf(char *format, ...)
+int printf(char *format, ...)
 {
     va_list list;
     int length = 0;
 
-    if (mini_printf_error(format) > 0){
+    if (printf_error(format) > 0){
         return (-1);
     }
     va_start(list, format);
