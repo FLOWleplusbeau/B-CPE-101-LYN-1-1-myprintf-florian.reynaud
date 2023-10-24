@@ -46,5 +46,6 @@ char **my_str_to_word_array(char const *str);
 void my_show_list(linked_list_t *list);
 int my_put_in_list(linked_list_t **list, void *data);
 int my_list_size(linked_list_t const *begin);
+int my_putnbr_base(unsigned int nbr, char const *base);
 
 #endif /* !HEADER_H_ */

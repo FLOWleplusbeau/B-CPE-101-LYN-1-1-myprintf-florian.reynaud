@@ -1,20 +1,21 @@
 /*
 ** EPITECH PROJECT, 2023
-** B-CPE-101-LYN-1-1-mywprintf-florian.reynaud
+** B-CPE-101-LYN-1-1-myprintf-florian.reynaud
 ** File description:
 ** my_printf
 */
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdio.h>
+#include "include/my.h"
 
-static void my_putchar(char c, int *length)
+static void my_putcharl(char c, int *length)
 {
     write(1, &c, 1);
     *length = *length + 1;
 }
 
-static int my_putstr(char const *str, int *length)
+static int my_putstrl(char const *str, int *length)
 {
     for (int i = 0; str[i] != '\0'; i++) {
         write(1, &str[i], 1);
@@ -27,7 +28,7 @@ static void print_number(char c)
     write(1, &c, 1);
 }
 
-static int my_put_nbr(int nb, int *length)
+static int my_put_nbrl(int nb, int *length)
 {
     char c = '0';
 
@@ -41,19 +42,11 @@ static int my_put_nbr(int nb, int *length)
     }
     nb /= 10;
     if (nb != 0){
-        my_put_nbr(nb, length);
+        my_put_nbrl(nb, length);
     }
     *length = *length + 1;
     write(1, &c, 1);
     return (0);
-}
-
-static int flag_n(int nb, int *c)
-{
-    int *d = &c;
-
-    &d = nb;
-    return 0;
 }
 
 static int do_flag(char *str, int i, va_list list, int *length)
@@ -61,19 +54,19 @@ static int do_flag(char *str, int i, va_list list, int *length)
     switch (str[i + 1]){
         case 'd':
         case 'i':
-            my_put_nbr(va_arg(list, int), length);
+            my_put_nbrl(va_arg(list, int), length);
             return 1;
         case 'u':
-            my_put_nbr(va_arg(list, unsigned int), length);
+            my_put_nbrl(va_arg(list, unsigned int), length);
             return 1;
         case 's':
-            my_putstr(va_arg(list, char *), length);
+            my_putstrl(va_arg(list, char *), length);
             return 1;
         case 'c':
-            my_putchar(va_arg(list, int), length);
+            my_putcharl(va_arg(list, int), length);
             return 1;
         case '%':
-            my_putchar('%', length);
+            my_putcharl('%', length);
             return 1;
         case 'o':
             my_putnbr_base(va_arg(list,unsigned int), "01234567");
@@ -85,10 +78,10 @@ static int do_flag(char *str, int i, va_list list, int *length)
             my_putnbr_base(va_arg(list,unsigned int), "0123456789ABCDEF");
             return 1;
         case 'n':
-            *(va_arg(list, int *)) = length;
+            *va_arg(list, int *) = *length;
             return 1;
         default:
-            my_putchar('%', length);
+            my_putcharl('%', length);
             return 0;
     }
 }
@@ -104,7 +97,7 @@ static int do_error_flag(char *str, int i)
     }
 }
 
-static int printf_error(char *format)
+static int my_printf_error(char *format)
 {
     int error = 0;
 
@@ -120,12 +113,12 @@ static int printf_error(char *format)
     return 0;
 }
 
-int printf(char *format, ...)
+int my_printf(char *format, ...)
 {
     va_list list;
     int length = 0;
 
-    if (printf_error(format) > 0){
+    if (my_printf_error(format) > 0){
         return (-1);
     }
     va_start(list, format);
@@ -134,7 +127,7 @@ int printf(char *format, ...)
             do_flag(format, i, list, &length);
             i++;
         } else {
-            my_putchar(format[i], &length);
+            my_putcharl(format[i], &length);
         }
     }
     va_end(list);
