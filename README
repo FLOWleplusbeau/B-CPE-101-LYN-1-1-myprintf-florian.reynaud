@@ -1,13 +1,10 @@
 To do:
     flag:
         add:
-            -e
             -g
             -a
             -p
             -m
-        fix:
-            -f
 
     char_attribut:
         -add all
