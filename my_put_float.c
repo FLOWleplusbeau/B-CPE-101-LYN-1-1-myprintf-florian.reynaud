@@ -4,11 +4,11 @@
 ** File description:
 ** my_put_float
 */
+
 #include "include/my.h"
 
 void my_put_float(double nb)
 {
-    int x;
     int nb_int = (int)nb;
 
     my_put_nbr(nb_int);
@@ -24,7 +24,6 @@ void my_put_float(double nb)
 
 void my_put_float_digits(double nb, int digits)
 {
-    int x;
     int nb_int = (int)nb;
 
     my_put_nbr(nb_int);
