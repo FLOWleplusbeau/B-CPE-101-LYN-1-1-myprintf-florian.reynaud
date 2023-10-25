@@ -9,6 +9,8 @@
 #include <stdio.h>
 #include "include/my.h"
 
+void my_put_float(double nb);
+
 static void my_putcharl(char c, int *length)
 {
     write(1, &c, 1);
@@ -77,6 +79,8 @@ static int do_flag(char *str, int i, va_list list, int *length)
         case 'X':
             my_putnbr_base(va_arg(list,unsigned int), "0123456789ABCDEF");
             return 1;
+        case 'f':
+            my_put_float(va_arg(list, double));
         case 'n':
             *va_arg(list, int *) = *length;
             return 1;
