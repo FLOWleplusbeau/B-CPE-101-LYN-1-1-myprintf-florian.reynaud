@@ -6,6 +6,7 @@
 */
 
 #include "include/my.h"
+#include <stdio.h>
 
 void my_put_float(double nb)
 {

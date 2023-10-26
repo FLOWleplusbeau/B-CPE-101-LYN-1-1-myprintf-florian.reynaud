@@ -7,6 +7,8 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include "include/is_special_char.h"
 #include "include/my.h"
 
 void my_put_float(double nb);
@@ -51,6 +53,46 @@ static int my_put_nbrl(int nb, int *length)
     return (0);
 }
 
+char *my_str_add(char *dest, char c)
+{
+    char *temp = dest;
+    int len;
+    
+    len = my_strlen(temp);
+
+    dest[len] = c;
+    dest[len + 1] = '\0';
+    return dest;
+}
+
+char *give_flag_parameters(char *format, int i){
+    char *str;
+    int length = 1;
+    int j;
+
+    for (j = i + 1; ! is_flag(format, j) || format[j] == '\0'; j++){
+        length++;
+    }
+    my_put_nbr(length);
+    my_putchar('\n');
+    str = malloc(sizeof(char) * (length + 1));
+    str[0] = '\0';
+    j = i + 1;
+    while (is_char_attribut(format, j)){
+        my_str_add(str, format[j]);
+        j++;
+    }
+    while (is_precision(format, j)){
+        my_str_add(str, format[j]);
+        j++;
+    }
+    while (is_length_modifier(format, j)){
+        my_str_add(str, format[j]);
+        j++;
+    }
+    return str;
+}
+
 static int do_flag(char *str, int i, va_list list, int *length)
 {
     switch (str[i + 1]){
@@ -81,6 +123,9 @@ static int do_flag(char *str, int i, va_list list, int *length)
             return 1;
         case 'f':
             my_put_float(va_arg(list, double));
+            return 1;
+        case 'p':
+            return 1;
         case 'n':
             *va_arg(list, int *) = *length;
             return 1;
@@ -120,6 +165,7 @@ static int my_printf_error(char *format)
 int my_printf(char *format, ...)
 {
     va_list list;
+    char *args;
     int length = 0;
 
     if (my_printf_error(format) > 0){
@@ -128,6 +174,10 @@ int my_printf(char *format, ...)
     va_start(list, format);
     for (int i = 0; format[i] != '\0'; i++){
         if (format[i] == '%'){
+            args = give_flag_parameters(format, i);
+            my_putstr(args);
+            free(args);
+            my_putchar('\n');
             do_flag(format, i, list, &length);
             i++;
         } else {
