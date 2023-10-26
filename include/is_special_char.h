@@ -12,5 +12,9 @@ int is_char_attribut(char *format, int i);
 int is_length_modifier(char *format, int i);
 int is_precision(char *format, int i);
 int is_flag(char *format, int i);
+void my_put_float_digits(double nb, int digits);
+void my_put_float(double nb);
+void do_flag_e(double nb, char e);
+void do_flag_e_digits(double nb,int digits , char e);
 
 #endif /* !IS_SPECIAL_CHAR_H_ */

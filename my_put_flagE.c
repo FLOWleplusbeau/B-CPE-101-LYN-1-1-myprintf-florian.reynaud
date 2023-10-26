@@ -6,6 +6,7 @@
 */
 
 #include "include/my.h"
+#include "include/is_special_char.h"
 
 static void put_flag_e(double nb, char e)
 {
