@@ -129,6 +129,12 @@ static int do_flag(char *str, int i, va_list list, int *length)
         case 'n':
             *va_arg(list, int *) = *length;
             return 1;
+        case 'e':
+            do_flag_e(va_arg(list, double), 'e');
+            return 1;
+        case 'E':
+            do_flag_e(va_arg(list, double), 'E');
+            return 1;
         default:
             my_putcharl('%', length);
             return 0;
