@@ -7,6 +7,8 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include "include/is_special_char.h"
 #include "include/my.h"
 
 void my_put_float(double nb);
@@ -49,6 +51,46 @@ static int my_put_nbrl(int nb, int *length)
     *length = *length + 1;
     write(1, &c, 1);
     return (0);
+}
+
+char *my_str_add(char *dest, char c)
+{
+    char *temp = dest;
+    int len;
+    
+    len = my_strlen(temp);
+
+    dest[len] = c;
+    dest[len + 1] = '\0';
+    return dest;
+}
+
+char *give_flag_parameters(char *format, int i){
+    char *str;
+    int length = 1;
+    int j;
+
+    for (j = i + 1; ! is_flag(format, j) || format[j] == '\0'; j++){
+        length++;
+    }
+    my_put_nbr(length);
+    my_putchar('\n');
+    str = malloc(sizeof(char) * (length + 1));
+    str[0] = '\0';
+    j = i + 1;
+    while (is_char_attribut(format, j)){
+        my_str_add(str, format[j]);
+        j++;
+    }
+    while (is_precision(format, j)){
+        my_str_add(str, format[j]);
+        j++;
+    }
+    while (is_length_modifier(format, j)){
+        my_str_add(str, format[j]);
+        j++;
+    }
+    return str;
 }
 
 static int do_flag(char *str, int i, va_list list, int *length)
@@ -120,93 +162,10 @@ static int my_printf_error(char *format)
     return 0;
 }
 
-int is_char_attribut(char *format, int i)
-{
-    char c = format[i];
-    switch (c){
-        case '#':
-        case '0':
-        case '-':
-        case '+':
-        case ' ':
-        case 'I':
-            return 1;
-        default:
-            return 0;
-    }
-}
-
-int is_length_modifier(char *format, int i)
-{
-    char c = format[i];
-    switch (c){
-        case 'h':
-        case 'l':
-        case 'L':
-        case 'q':
-        case 'j':
-        case 'z':
-        case 't':
-            return 1;
-        default:
-            return 0;
-    }
-}
-
-int is_precision(char *format, int i)
-{
-    char c = format[i];
-    if (c >= '0' && c <= '9'){
-        return 1;
-    }
-    if (c == '.'){
-        return 1;
-    }
-    return 0;
-}
-
-int is_low_flag(char *format, int i)
-{
-    char c = format[i];
-    switch (c){
-        case 'd':
-        case 'i':
-        case 'f':
-        case 'e':
-        case 'x':
-        case 's':
-        case 'u':
-        case 'p':
-        case 'm':
-        case 'n':
-        case '%':
-        case 'g':
-        case 'c':
-            return 1;
-        default:
-            return 0;
-    }
-}
-
-int is_high_flag(char *format, int i)
-{
-    char c = format[i];
-    switch (c){
-        case 'X':
-        case 'E':
-        case 'F':
-        case 'G':
-        case 'C':
-        case 'S':
-            return 1;
-        default:
-            return 0;
-    }
-}
-
 int my_printf(char *format, ...)
 {
     va_list list;
+    char *args;
     int length = 0;
 
     if (my_printf_error(format) > 0){
@@ -215,6 +174,10 @@ int my_printf(char *format, ...)
     va_start(list, format);
     for (int i = 0; format[i] != '\0'; i++){
         if (format[i] == '%'){
+            args = give_flag_parameters(format, i);
+            my_putstr(args);
+            free(args);
+            my_putchar('\n');
             do_flag(format, i, list, &length);
             i++;
         } else {
