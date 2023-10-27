@@ -6,6 +6,7 @@
 */
 
 #include "mylist.h"
+#include <stdarg.h>
 
 #ifndef HEADER_H_
     #define HEADER_H_
@@ -36,16 +37,9 @@ int my_str_isnum(char const *str);
 int my_str_islower(char const *str);
 int my_str_isupper(char const *str);
 int my_str_isprintable(char const *str);
-int my_showstr(char const *str);
-int my_showmem(char const *str, int size);
 char *my_strcat(char *dest, char const *src);
 char *my_strncat(char *dest, char const *src, int nb);
-int my_tablen(char **tab);
 char *my_strdup(char const *src);
-char **my_str_to_word_array(char const *str);
-void my_show_list(linked_list_t *list);
-int my_put_in_list(linked_list_t **list, void *data);
-int my_list_size(linked_list_t const *begin);
 
 //paenlevè
 char *my_str_add(char *dest, char c);
@@ -58,11 +52,12 @@ int is_precision(char *format, int i);
 int is_flag(char *format, int i);
 void my_put_float_digits(double nb, int digits);
 void my_put_float(double nb);
-void do_flag_e(double nb, char e);
-void do_flag_e_digits(double nb,int digits , char e);
+int do_flag_e(double nb, char e);
+int do_flag_e_digits(double nb,int digits , char e);
 void my_putcharl(char c, int *length);
 int my_putstrl(char const *str, int *length);
 int my_put_nbrl(int nb, int *length);
 char give_flag(char *format, int i);
+int do_flag(char *format, int i, va_list list);
 
 #endif /* !HEADER_H_ */

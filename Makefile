@@ -18,6 +18,8 @@ SRC	=	my_printf.c	\
 	my_str_add.c	\
 	give_flag.c	\
 	put_l.c	\
+	do_flag.c	\
+	do_flags.c	\
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -26,7 +28,11 @@ NAME	=	libmy.a
 all:	libmy.a
 
 libmy.a:	$(OBJ)
-	ar	rc	$(NAME)	*.o
+	mv $(OBJ) ./binary
+	ar	rc	$(NAME)	binary/*.o
+
+mv_obj:
+	mv $(OBJ) ./
 
 clean:
 	rm -f	$(OBJ)
