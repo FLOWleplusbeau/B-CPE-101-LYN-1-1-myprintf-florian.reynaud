@@ -8,14 +8,16 @@
 SRC	=	my_printf.c	\
 	my_put_flagE.c	\
 	my_put_float.c	\
-	my_put_pointer.c	\
 	my_putnbr_base.c	\
 	my_put_nbr.c	\
 	my_putchar.c	\
 	my_putstr.c	\
 	my_strlen.c	\
 	my_strncpy.c	\
-	is_special_char.c
+	is_special_char.c	\
+	my_str_add.c	\
+	give_flag.c	\
+	put_l.c	\
 
 OBJ	=	$(SRC:.c=.o)
 

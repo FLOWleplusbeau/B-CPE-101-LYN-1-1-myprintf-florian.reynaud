@@ -4,7 +4,6 @@
 ** File description:
 ** my_strncpy
 */
-
 #include <stdio.h>
 #include "include/my.h"
 

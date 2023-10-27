@@ -46,6 +46,23 @@ char **my_str_to_word_array(char const *str);
 void my_show_list(linked_list_t *list);
 int my_put_in_list(linked_list_t **list, void *data);
 int my_list_size(linked_list_t const *begin);
+
+//paenlevè
+char *my_str_add(char *dest, char c);
+void my_put_float(double nb);
 int my_putnbr_base(unsigned int nbr, char const *base);
+char *give_flag_parameters(char *format, int i);
+int is_char_attribut(char *format, int i);
+int is_length_modifier(char *format, int i);
+int is_precision(char *format, int i);
+int is_flag(char *format, int i);
+void my_put_float_digits(double nb, int digits);
+void my_put_float(double nb);
+void do_flag_e(double nb, char e);
+void do_flag_e_digits(double nb,int digits , char e);
+void my_putcharl(char c, int *length);
+int my_putstrl(char const *str, int *length);
+int my_put_nbrl(int nb, int *length);
+char give_flag(char *format, int i);
 
 #endif /* !HEADER_H_ */
