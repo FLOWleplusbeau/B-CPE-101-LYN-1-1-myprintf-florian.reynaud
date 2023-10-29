@@ -10,9 +10,8 @@ char *my_str_add(char *dest, char c)
 {
     char *temp = dest;
     int len;
-    
-    len = my_strlen(temp);
 
+    len = my_strlen(temp);
     dest[len] = c;
     dest[len + 1] = '\0';
     return dest;

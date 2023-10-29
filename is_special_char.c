@@ -8,6 +8,7 @@
 int is_char_attribut(char *format, int i)
 {
     char c = format[i];
+
     switch (c){
         case '#':
         case '0':
@@ -24,6 +25,7 @@ int is_char_attribut(char *format, int i)
 int is_length_modifier(char *format, int i)
 {
     char c = format[i];
+
     switch (c){
         case 'h':
         case 'l':
@@ -41,6 +43,7 @@ int is_length_modifier(char *format, int i)
 int is_precision(char *format, int i)
 {
     char c = format[i];
+
     if (c >= '0' && c <= '9'){
         return 1;
     }
@@ -53,6 +56,7 @@ int is_precision(char *format, int i)
 static int is_low_flag(char *format, int i)
 {
     char c = format[i];
+
     switch (c){
         case 'd':
         case 'i':
@@ -76,6 +80,7 @@ static int is_low_flag(char *format, int i)
 static int is_high_flag(char *format, int i)
 {
     char c = format[i];
+
     switch (c){
         case 'X':
         case 'E':

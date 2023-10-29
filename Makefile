@@ -19,7 +19,7 @@ SRC	=	my_printf.c	\
 	give_flag.c	\
 	put_l.c	\
 	do_flag.c	\
-	do_flags.c	\
+	do_flags.c
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -28,14 +28,14 @@ NAME	=	libmy.a
 all:	libmy.a
 
 libmy.a:	$(OBJ)
-	mv $(OBJ) ./binary
-	ar	rc	$(NAME)	binary/*.o
+	mv $(OBJ) ./objects
+	ar	rc	$(NAME)	objects/*.o
 
 mv_obj:
 	mv $(OBJ) ./
 
 clean:
-	rm -f	$(OBJ)
+	rm -f	objects/*.o
 
 fclean:	clean
 	rm -f	$(NAME)

@@ -22,8 +22,7 @@ int my_printf(char *format, ...)
         if (format[i] == '%'){
             flag_length = do_flag(format, i, list);
             i += flag_length;
-        } 
-        else {
+        } else {
             my_putcharl(format[i], &length);
         }
     }

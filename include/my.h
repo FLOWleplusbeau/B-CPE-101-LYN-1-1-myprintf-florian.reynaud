@@ -53,7 +53,7 @@ int is_flag(char *format, int i);
 void my_put_float_digits(double nb, int digits);
 void my_put_float(double nb);
 int do_flag_e(double nb, char e);
-int do_flag_e_digits(double nb,int digits , char e);
+int do_flag_e_digits(double nb, int digits , char e);
 void my_putcharl(char c, int *length);
 int my_putstrl(char const *str, int *length);
 int my_put_nbrl(int nb, int *length);

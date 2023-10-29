@@ -75,7 +75,7 @@ int do_flag_e(double nb, char e)
     return;
 }
 
-int do_flag_e_digits(double nb,int digits , char e)
+int do_flag_e_digits(double nb, int digits , char e)
 {
     if (nb < 1){
         put_flag_neg_e_digits(nb, digits, e);

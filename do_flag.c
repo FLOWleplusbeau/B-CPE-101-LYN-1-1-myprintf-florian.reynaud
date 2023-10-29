@@ -9,17 +9,26 @@
 #include "include/my.h"
 #include "include/flag.h"
 
+void make_array(int (**array)())
+{
+    array['i'] = do_flag_d;
+    array['d'] = do_flag_d;
+    array['c'] = do_flag_s;
+    array['s'] = do_flag_s;
+}
+
 int do_flag(char *format, int i, va_list list)
 {
-    typedef int (*func_type)(va_list list);
-    func_type array[256];
+    int (**array)();
     int length = 1;
     char flag = give_flag(format, i);
     char *param = give_flag_parameters(format, i);
 
-    array['d'] = do_flag_d;
+    array = malloc(sizeof(int (**)()) * 257);
+    make_array(array);
     array[flag](list);
     length += my_strlen(param);
     free(param);
+    free(array);
     return length;
 }
