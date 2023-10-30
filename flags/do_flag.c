@@ -11,6 +11,9 @@
 
 void make_array(int (**array)())
 {
+    for (int i = 0; i < 257; i++){
+        array[i] = do_flag_d;
+    }
     array['i'] = do_flag_i;
     array['d'] = do_flag_d;
     array['c'] = do_flag_c;
@@ -19,6 +22,7 @@ void make_array(int (**array)())
     array['X'] = do_flag_X;
     array['o'] = do_flag_o;
     array['u'] = do_flag_u;
+    array['f'] = do_flag_f;
 }
 
 int do_flag(char *format, int i, va_list list, int *length)
@@ -30,7 +34,7 @@ int do_flag(char *format, int i, va_list list, int *length)
 
     array = malloc(sizeof(int (**)()) * 257);
     make_array(array);
-    array[flag](list, length);
+    array[flag](list, length, param);
     flag_length += my_strlen(param);
     free(param);
     free(array);
