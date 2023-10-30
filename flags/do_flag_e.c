@@ -18,7 +18,7 @@ static void put_flag_e(double nb, char e)
     my_putchar(e);
     my_putchar('+');
     my_put_nbr(count);
-    return;
+    return ;
 }
 
 static void put_flag_e_digits(double nb, int digits, char e)
@@ -72,7 +72,7 @@ int do_flag_e(double nb, char e)
     } else {
         put_flag_e(nb, e);
     }
-    return;
+    return 0;
 }
 
 int do_flag_e_digits(double nb, int digits , char e)
@@ -82,5 +82,5 @@ int do_flag_e_digits(double nb, int digits , char e)
     } else {
         put_flag_e_digits(nb, digits, e);
     }
-    return;
+    return 0;
 }

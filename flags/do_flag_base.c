@@ -4,6 +4,8 @@
 ** File description:
 ** do_flag_x
 */
+#include <stdarg.h>
+#include "../include/my.h"
 
 int do_flag_X(va_list list, int *length)
 {

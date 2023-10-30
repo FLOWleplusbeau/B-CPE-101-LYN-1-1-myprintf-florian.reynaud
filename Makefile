@@ -22,7 +22,8 @@ SRC	=	my_printf.c	\
 	flags/do_flags.c	\
 	check/my_char_is_num.c	\
 	check/my_char_is_in_str.c	\
-	flags/do_flag_base.c
+	flags/do_flag_base.c	\
+	utility/give_nb_char.c	\
 
 OBJ	=	$(SRC:.c=.o)
 
