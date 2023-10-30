@@ -19,10 +19,12 @@ void make_array(int (**array)())
     array['c'] = do_flag_c;
     array['s'] = do_flag_s;
     array['x'] = do_flag_x;
-    array['X'] = do_flag_X;
+    array['X'] = do_flag_x_maj;
     array['o'] = do_flag_o;
     array['u'] = do_flag_u;
     array['f'] = do_flag_f;
+    array['e'] = do_flag_e;
+    array['E'] = do_flag_e_maj;
 }
 
 int do_flag(char *format, int i, va_list list, int *length)

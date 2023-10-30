@@ -65,7 +65,7 @@ static void put_flag_neg_e_digits(double nb, int digits, char e)
     return;
 }
 
-int do_flag_e(double nb, char e)
+static int put_flag_e(double nb, char e)
 {
     if (nb < 1){
         put_flag_neg_e(nb, e);
@@ -75,7 +75,7 @@ int do_flag_e(double nb, char e)
     return 0;
 }
 
-int do_flag_e_digits(double nb, int digits , char e)
+static int put_flag_e_digits(double nb, int digits , char e)
 {
     if (nb < 1){
         put_flag_neg_e_digits(nb, digits, e);
@@ -83,4 +83,26 @@ int do_flag_e_digits(double nb, int digits , char e)
         put_flag_e_digits(nb, digits, e);
     }
     return 0;
+}
+
+int do_flag_e(va_list list, int *length, char *param)
+{
+    int digits = give_precision(param);
+
+    if (digits == -1){
+        put_flag_e(round_float(va_arg(list, double) 6), 'e');
+    } else {
+        put_flag_e_digits(round_float(va_arg(list, double) digits), digits, 'e');
+    }
+}
+
+int do_flag_e_maj(va_list list, int *length, char *param)
+{
+    int digits = give_precision(param);
+
+    if (digits == -1){
+        put_flag_e(round_float(va_arg(list, double) 6), 'E');
+    } else {
+        put_flag_e_digits(round_float(va_arg(list, double) digits), digits, 'E');
+    }
 }

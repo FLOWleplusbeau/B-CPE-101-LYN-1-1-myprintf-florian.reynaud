@@ -18,5 +18,7 @@ int do_flag_x(va_list list, int *length, char *param);
 int do_flag_o(va_list list, int *length, char *param);
 int do_flag_u(va_list list, int *length, char *param);
 int do_flag_f(va_list list, int *length, char *param);
+int do_flag_e(va_list list, int *length, char *param);
+int do_flag_E(va_list list, int *length, char *param);
 
 #endif /* !FLAG_H_ */
