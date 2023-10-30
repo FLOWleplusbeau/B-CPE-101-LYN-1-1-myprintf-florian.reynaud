@@ -24,6 +24,8 @@ SRC	=	my_printf.c	\
 	check/my_char_is_in_str.c	\
 	flags/do_flag_base.c	\
 	utility/give_nb_char.c	\
+	utility/my_getnbr.c	\
+	utility/give_precision.c	\
 
 OBJ	=	$(SRC:.c=.o)
 
