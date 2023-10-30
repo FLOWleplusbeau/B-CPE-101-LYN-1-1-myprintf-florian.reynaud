@@ -40,6 +40,7 @@ int my_str_isprintable(char const *str);
 char *my_strcat(char *dest, char const *src);
 char *my_strncat(char *dest, char const *src, int nb);
 char *my_strdup(char const *src);
+int my_char_is_num(char c);
 
 //paenlevè
 char *my_str_add(char *dest, char c);

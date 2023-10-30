@@ -20,15 +20,15 @@ void make_array(int (**array)())
 int do_flag(char *format, int i, va_list list, int *length)
 {
     int (**array)();
-    int i_length = 1;
+    int flag_length = 1;
     char flag = give_flag(format, i);
     char *param = give_flag_parameters(format, i);
 
     array = malloc(sizeof(int (**)()) * 257);
     make_array(array);
     array[flag](list, length);
-    i_length += my_strlen(param);
+    flag_length += my_strlen(param);
     free(param);
     free(array);
-    return i_length;
+    return flag_length;
 }
