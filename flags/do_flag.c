@@ -6,8 +6,8 @@
 */
 #include <stdarg.h>
 #include <stdlib.h>
-#include "include/my.h"
-#include "include/flag.h"
+#include "../include/my.h"
+#include "../include/flag.h"
 
 void make_array(int (**array)())
 {

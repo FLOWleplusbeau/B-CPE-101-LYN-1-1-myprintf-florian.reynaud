@@ -6,7 +6,7 @@
 */
 
 #include <unistd.h>
-#include "include/my.h"
+#include "../include/my.h"
 
 int my_putnbr_base(unsigned int nbr, char const *base)
 {

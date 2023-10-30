@@ -4,7 +4,7 @@
 ** File description:
 ** my_str_add
 */
-#include "include/my.h"
+#include "../include/my.h"
 
 char *my_str_add(char *dest, char c)
 {

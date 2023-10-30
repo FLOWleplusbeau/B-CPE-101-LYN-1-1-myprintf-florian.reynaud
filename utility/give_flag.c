@@ -4,7 +4,7 @@
 ** File description:
 ** give_flag_parameters
 */
-#include "include/my.h"
+#include "../include/my.h"
 #include <stdlib.h>
 
 static int give_parameters_length(char *format, int i)

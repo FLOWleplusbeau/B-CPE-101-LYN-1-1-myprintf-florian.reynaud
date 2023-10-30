@@ -5,7 +5,7 @@
 ** do_flags
 */
 #include <stdarg.h>
-#include "include/my.h"
+#include "../include/my.h"
 
 int do_flag_d(va_list list, int *length)
 {

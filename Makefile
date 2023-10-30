@@ -6,20 +6,22 @@
 ##
 
 SRC	=	my_printf.c	\
-	my_put_flag_e.c	\
-	my_put_float.c	\
-	my_putnbr_base.c	\
-	my_put_nbr.c	\
-	my_putchar.c	\
-	my_putstr.c	\
-	my_strlen.c	\
-	my_strncpy.c	\
-	is_special_char.c	\
-	my_str_add.c	\
-	give_flag.c	\
-	put_l.c	\
-	do_flag.c	\
-	do_flags.c
+	flags/do_flag_e.c	\
+	put/my_put_float.c	\
+	put/my_putnbr_base.c	\
+	put/my_put_nbr.c	\
+	put/my_putchar.c	\
+	put/my_putstr.c	\
+	utility/my_strlen.c	\
+	utility/my_strncpy.c	\
+	check/is_special_char.c	\
+	utility/my_str_add.c	\
+	utility/give_flag.c	\
+	put/put_l.c	\
+	flags/do_flag.c	\
+	flags/do_flags.c	\
+	check/my_char_is_num.c	\
+	check/my_char_is_in_str.c
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -27,15 +29,14 @@ NAME	=	libmy.a
 
 all:	libmy.a
 
-libmy.a:	$(OBJ)
-	mv $(OBJ) ./objects
+libmy.a:	mv_obj
 	ar	rc	$(NAME)	objects/*.o
 
-mv_obj:
-	mv $(OBJ) ./
+mv_obj:	$(OBJ)
+	mv $(OBJ) objects/
 
 clean:
-	rm -f	objects/*.o
+	rm -f objects/*.o
 
 fclean:	clean
 	rm -f	$(NAME)

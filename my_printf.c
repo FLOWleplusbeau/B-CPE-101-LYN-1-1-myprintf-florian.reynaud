@@ -26,7 +26,6 @@ int my_printf(char *format, ...)
             my_putcharl(format[i], &length);
         }
     }
-    my_put_nbr(length);
     va_end(list);
     return length;
 }

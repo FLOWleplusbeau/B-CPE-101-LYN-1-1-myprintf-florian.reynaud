@@ -5,6 +5,7 @@
 ** put_l
 */
 #include <unistd.h>
+#include "../include/my.h"
 
 void my_putcharl(char c, int *length)
 {
