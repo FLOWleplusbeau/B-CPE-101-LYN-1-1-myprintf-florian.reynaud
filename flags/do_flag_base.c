@@ -7,7 +7,7 @@
 #include <stdarg.h>
 #include "../include/my.h"
 
-int do_flag_X(va_list list, int *length, char *param)
+int do_flag_x_maj(va_list list, int *length, char *param)
 {
     my_putnbr_base(va_arg(list, unsigned int), "0123456789ABCDEF", length);
 }
@@ -32,7 +32,7 @@ int do_flag_f(va_list list, int *length, char *param)
     int digits = give_precision(param);
 
     if (digits == -1){
-        my_put_float(va_arg(list, double));
+        my_put_float(round_float(va_arg(list, double), 6));
     } else {
         my_put_float_digits(round_float(va_arg(list, double), digits), digits);
     }

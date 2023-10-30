@@ -18,7 +18,7 @@ static void put_flag_e(double nb, char e)
     my_putchar(e);
     my_putchar('+');
     my_put_nbr(count);
-    return ;
+    return;
 }
 
 static void put_flag_e_digits(double nb, int digits, char e)
@@ -65,7 +65,7 @@ static void put_flag_neg_e_digits(double nb, int digits, char e)
     return;
 }
 
-static int put_flag_e(double nb, char e)
+static int putl_flag_e(double nb, char e)
 {
     if (nb < 1){
         put_flag_neg_e(nb, e);
@@ -75,7 +75,7 @@ static int put_flag_e(double nb, char e)
     return 0;
 }
 
-static int put_flag_e_digits(double nb, int digits , char e)
+static int putl_flag_e_digits(double nb, int digits , char e)
 {
     if (nb < 1){
         put_flag_neg_e_digits(nb, digits, e);
@@ -87,22 +87,22 @@ static int put_flag_e_digits(double nb, int digits , char e)
 
 int do_flag_e(va_list list, int *length, char *param)
 {
-    int digits = give_precision(param);
+    int di = give_precision(param);
 
-    if (digits == -1){
-        put_flag_e(round_float(va_arg(list, double) 6), 'e');
+    if (di == -1){
+        putl_flag_e(round_float(va_arg(list, double), 6), 'e');
     } else {
-        put_flag_e_digits(round_float(va_arg(list, double) digits), digits, 'e');
+        putl_flag_e_digits(round_float(va_arg(list, double), di), di, 'e');
     }
 }
 
 int do_flag_e_maj(va_list list, int *length, char *param)
 {
-    int digits = give_precision(param);
+    int di = give_precision(param);
 
-    if (digits == -1){
-        put_flag_e(round_float(va_arg(list, double) 6), 'E');
+    if (di == -1){
+        putl_flag_e(round_float(va_arg(list, double), 6), 'E');
     } else {
-        put_flag_e_digits(round_float(va_arg(list, double) digits), digits, 'E');
+        putl_flag_e_digits(round_float(va_arg(list, double), di), di, 'E');
     }
 }

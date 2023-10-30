@@ -9,8 +9,9 @@
 int give_nb_char(char *param)
 {
     int i = 0;
+
     while (is_char_attribut(param, i)){
         i++;
     }
-    return my_getnbr_i(param,i);
+    return my_getnbr_i(param, i);
 }

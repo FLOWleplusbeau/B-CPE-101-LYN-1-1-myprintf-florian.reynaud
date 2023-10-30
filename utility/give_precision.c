@@ -10,6 +10,7 @@
 int give_precision(char *param)
 {
     int i = 0;
+
     while (param[i] != '.' && param[i] != '\0'){
         i++;
     }
@@ -18,5 +19,5 @@ int give_precision(char *param)
     } else {
         return -1;
     }
-    return my_getnbr_i(param,i);
+    return my_getnbr_i(param, i);
 }
