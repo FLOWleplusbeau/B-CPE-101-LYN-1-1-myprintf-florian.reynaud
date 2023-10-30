@@ -8,13 +8,13 @@
 #include <unistd.h>
 #include "../include/my.h"
 
-int my_putnbr_base(unsigned int nbr, char const *base)
+int my_putnbr_base(unsigned int nbr, char const *base, int *length)
 {
     int div = 1;
     int res;
 
     if (nbr < 0){
-        my_putchar('-');
+        my_putcharl('-', length);
         nbr = nbr * - 1;
     }
     while ((nbr / div) >= (my_strlen(base)) - 1){
@@ -22,6 +22,6 @@ int my_putnbr_base(unsigned int nbr, char const *base)
     }
     for (; div > 0; div = div / (my_strlen(base) - 1)){
         res = (nbr / div) % (my_strlen(base));
-        my_putchar(base[res]);
+        my_putcharl(base[res], length);
     }
 }
