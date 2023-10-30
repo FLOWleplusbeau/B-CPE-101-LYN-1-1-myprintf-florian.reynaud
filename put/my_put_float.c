@@ -32,6 +32,7 @@ void my_put_float_digits(double nb, int digits)
         my_putchar('.');
     }
     for (int i = 0; i < digits; i++){
+        nb = nb - nb_int;
         nb = nb * 10;
         nb_int = (int)nb;
         nb_int = nb_int % 10;
