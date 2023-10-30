@@ -15,6 +15,7 @@ void my_put_float(double nb)
     my_put_nbr(nb_int);
     my_putchar('.');
     for (int i = 0; i < 6; i++){
+        nb = nb - nb_int;
         nb = nb * 10;
         nb_int = (int)nb;
         nb_int = nb_int % 10;
