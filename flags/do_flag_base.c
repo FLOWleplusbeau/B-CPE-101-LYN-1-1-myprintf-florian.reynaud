@@ -29,9 +29,11 @@ int do_flag_u(va_list list, int *length, char *param)
 
 int do_flag_f(va_list list, int *length, char *param)
 {
-    if (give_precision(param) == -1){
+    int digits = give_precision(param);
+
+    if (digits == -1){
         my_put_float(va_arg(list, double));
     } else {
-        my_put_float_digits(va_arg(list, double), give_precision(param));
+        my_put_float_digits(round_float(va_arg(list, double), digits), digits);
     }
 }

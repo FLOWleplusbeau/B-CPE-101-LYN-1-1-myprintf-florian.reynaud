@@ -8,6 +8,25 @@
 #include "../include/my.h"
 #include <stdio.h>
 
+double round_float(double nb, int digits)
+{
+    double old_nb = nb;
+    double nb_add = 10.0;
+    int nb_int = (int)nb;
+
+    for (int i = 0; i < digits + 1; i++){
+        nb = nb - nb_int;
+        nb = nb * 10;
+        nb_int = (int)nb;
+        nb_int = nb_int % 10;
+        nb_add = nb_add / 10;
+    }
+    if (nb_int >= 5){
+        old_nb += nb_add;
+    }
+    return old_nb;
+}
+
 void my_put_float(double nb)
 {
     int nb_int = (int)nb;
@@ -29,9 +48,8 @@ void my_put_float_digits(double nb, int digits)
     int nb_int = (int)nb;
 
     my_put_nbr(nb_int);
-    if (digits > 0){
+    if (digits > 0)
         my_putchar('.');
-    }
     for (int i = 0; i < digits; i++){
         nb = nb - nb_int;
         nb = nb * 10;

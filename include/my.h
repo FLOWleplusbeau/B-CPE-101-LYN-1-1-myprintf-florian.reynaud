@@ -40,6 +40,7 @@ char *my_strncat(char *dest, char const *src, int nb);
 char *my_strdup(char const *src);
 
 //paenlevè
+int my_printf(char *format, ...);
 char *my_str_add(char *dest, char c);
 void my_put_float(double nb);
 int my_putnbr_base(unsigned int nbr, char const *base, int *length);
@@ -64,5 +65,6 @@ int give_nb_char(char *param);
 int my_getnbr(char const *str);
 int my_getnbr_i(char const *str, int i);
 int give_precision(char *param);
+double round_float(double nb, int digits);
 
 #endif /* !HEADER_H_ */
