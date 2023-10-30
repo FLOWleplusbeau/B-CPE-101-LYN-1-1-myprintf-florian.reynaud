@@ -16,7 +16,6 @@ int my_put_nbr(int nb);
 void my_swap(int *a, int *b);
 int my_putstr(char const *str);
 int my_strlen(char const *str);
-int my_getnbr(char const *str);
 void my_sort_int_array(int *tab, int size);
 int my_compute_power_rec(int nb, int power);
 int my_compute_square_root(int nb);
@@ -62,5 +61,8 @@ int my_char_is_in_str(char *str, char c);
 int my_char_is_num(char c);
 int my_put_unsigned_nbrl(unsigned int nb, int *length);
 int give_nb_char(char *param);
+int my_getnbr(char const *str);
+int my_getnbr_i(char const *str, int i);
+int give_precision(char *param);
 
 #endif /* !HEADER_H_ */
