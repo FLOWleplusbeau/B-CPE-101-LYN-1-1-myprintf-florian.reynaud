@@ -11,10 +11,14 @@
 
 void make_array(int (**array)())
 {
-    array['i'] = do_flag_d;
+    array['i'] = do_flag_i;
     array['d'] = do_flag_d;
-    array['c'] = do_flag_s;
+    array['c'] = do_flag_c;
     array['s'] = do_flag_s;
+    array['x'] = do_flag_x;
+    array['X'] = do_flag_X;
+    array['o'] = do_flag_o;
+    array['u'] = do_flag_u;
 }
 
 int do_flag(char *format, int i, va_list list, int *length)

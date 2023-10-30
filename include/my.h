@@ -61,5 +61,6 @@ char give_flag(char *format, int i);
 int do_flag(char *format, int i, va_list list, int *length);
 int my_char_is_in_str(char *str, char c);
 int my_char_is_num(char c);
+int my_put_unsigned_nbrl(unsigned int nb, int *length);
 
 #endif /* !HEADER_H_ */

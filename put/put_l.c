@@ -46,3 +46,24 @@ int my_put_nbrl(int nb, int *length)
     write(1, &c, 1);
     return (0);
 }
+
+int my_put_unsigned_nbrl(unsigned int nb, int *length)
+{
+    char c = '0';
+
+    if (nb < 0){
+        write(1, "-", 1);
+        nb = nb * -1;
+    }
+    while (nb % 10 != 0){
+        nb--;
+        c++;
+    }
+    nb /= 10;
+    if (nb != 0){
+        my_put_nbrl(nb, length);
+    }
+    *length = *length + 1;
+    write(1, &c, 1);
+    return (0);
+}
