@@ -9,13 +9,14 @@
 #ifndef FLAG_H_
     #define FLAG_H_
 
-int do_flag_d(va_list list, int *length);
-int do_flag_i(va_list list, int *length);
-int do_flag_c(va_list list, int *length);
-int do_flag_s(va_list list, int *length);
-int do_flag_X(va_list list, int *length);
-int do_flag_x(va_list list, int *length);
-int do_flag_o(va_list list, int *length);
-int do_flag_u(va_list list, int *length);
+int do_flag_d(va_list list, int *length, char *param);
+int do_flag_i(va_list list, int *length, char *param);
+int do_flag_c(va_list list, int *length, char *param);
+int do_flag_s(va_list list, int *length, char *param);
+int do_flag_X(va_list list, int *length, char *param);
+int do_flag_x(va_list list, int *length, char *param);
+int do_flag_o(va_list list, int *length, char *param);
+int do_flag_u(va_list list, int *length, char *param);
+int do_flag_f(va_list list, int *length, char *param);
 
 #endif /* !FLAG_H_ */

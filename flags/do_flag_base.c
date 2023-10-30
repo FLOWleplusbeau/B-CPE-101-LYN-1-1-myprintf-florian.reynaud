@@ -9,17 +9,17 @@
 
 int do_flag_X(va_list list, int *length, char *param)
 {
-    my_putnbr_base(va_arg(list, unsigned int), "0123456789ABCDEF");
+    my_putnbr_base(va_arg(list, unsigned int), "0123456789ABCDEF", length);
 }
 
 int do_flag_x(va_list list, int *length, char *param)
 {
-    my_putnbr_base(va_arg(list, unsigned int), "0123456789abcdef");
+    my_putnbr_base(va_arg(list, unsigned int), "0123456789abcdef", length);
 }
 
 int do_flag_o(va_list list, int *length, char *param)
 {
-    my_putnbr_base(va_arg(list, unsigned int), "01234567");
+    my_putnbr_base(va_arg(list, unsigned int), "01234567", length);
 }
 
 int do_flag_u(va_list list, int *length, char *param)
