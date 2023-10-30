@@ -40,7 +40,6 @@ int my_str_isprintable(char const *str);
 char *my_strcat(char *dest, char const *src);
 char *my_strncat(char *dest, char const *src, int nb);
 char *my_strdup(char const *src);
-int my_char_is_num(char c);
 
 //paenlevè
 char *my_str_add(char *dest, char c);
@@ -60,5 +59,7 @@ int my_putstrl(char const *str, int *length);
 int my_put_nbrl(int nb, int *length);
 char give_flag(char *format, int i);
 int do_flag(char *format, int i, va_list list, int *length);
+int my_char_is_in_str(char *str, char c);
+int my_char_is_num(char c);
 
 #endif /* !HEADER_H_ */
