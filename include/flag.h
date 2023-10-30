@@ -9,9 +9,9 @@
 #ifndef FLAG_H_
     #define FLAG_H_
 
-int do_flag_d(va_list list);
-int do_flag_i(va_list list);
-int do_flag_c(va_list list);
-int do_flag_s(va_list list);
+int do_flag_d(va_list list, int *length);
+int do_flag_i(va_list list, int *length);
+int do_flag_c(va_list list, int *length);
+int do_flag_s(va_list list, int *length);
 
 #endif /* !FLAG_H_ */

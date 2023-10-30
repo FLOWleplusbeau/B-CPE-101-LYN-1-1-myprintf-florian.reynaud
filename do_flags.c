@@ -7,22 +7,22 @@
 #include <stdarg.h>
 #include "include/my.h"
 
-int do_flag_d(va_list list)
+int do_flag_d(va_list list, int *length)
 {
-    my_put_nbr(va_arg(list, int));
+    my_put_nbrl(va_arg(list, int), length);
 }
 
-int do_flag_i(va_list list)
+int do_flag_i(va_list list, int *length)
 {
-    my_put_nbr(va_arg(list, int));
+    my_put_nbrl(va_arg(list, int), length);
 }
 
-int do_flag_c(va_list list)
+int do_flag_c(va_list list, int *length)
 {
-    my_putchar(va_arg(list, int));
+    my_putcharl(va_arg(list, int), length);
 }
 
-int do_flag_s(va_list list)
+int do_flag_s(va_list list, int *length)
 {
-    my_putstr(va_arg(list, char *));
+    my_putstrl(va_arg(list, char *), length);
 }

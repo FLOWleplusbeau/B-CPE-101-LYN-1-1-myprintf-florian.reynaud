@@ -20,12 +20,13 @@ int my_printf(char *format, ...)
     va_start(list, format);
     for (int i = 0; format[i] != '\0'; i++){
         if (format[i] == '%'){
-            flag_length = do_flag(format, i, list);
+            flag_length = do_flag(format, i, list, &length);
             i += flag_length;
         } else {
             my_putcharl(format[i], &length);
         }
     }
+    my_put_nbr(length);
     va_end(list);
     return length;
 }

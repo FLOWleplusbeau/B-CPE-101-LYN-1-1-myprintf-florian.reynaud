@@ -6,7 +6,7 @@
 ##
 
 SRC	=	my_printf.c	\
-	my_put_flagE.c	\
+	my_put_flag_e.c	\
 	my_put_float.c	\
 	my_putnbr_base.c	\
 	my_put_nbr.c	\

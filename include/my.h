@@ -58,6 +58,6 @@ void my_putcharl(char c, int *length);
 int my_putstrl(char const *str, int *length);
 int my_put_nbrl(int nb, int *length);
 char give_flag(char *format, int i);
-int do_flag(char *format, int i, va_list list);
+int do_flag(char *format, int i, va_list list, int *length);
 
 #endif /* !HEADER_H_ */

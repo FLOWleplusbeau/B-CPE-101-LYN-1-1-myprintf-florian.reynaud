@@ -17,18 +17,18 @@ void make_array(int (**array)())
     array['s'] = do_flag_s;
 }
 
-int do_flag(char *format, int i, va_list list)
+int do_flag(char *format, int i, va_list list, int *length)
 {
     int (**array)();
-    int length = 1;
+    int i_length = 1;
     char flag = give_flag(format, i);
     char *param = give_flag_parameters(format, i);
 
     array = malloc(sizeof(int (**)()) * 257);
     make_array(array);
-    array[flag](list);
-    length += my_strlen(param);
+    array[flag](list, length);
+    i_length += my_strlen(param);
     free(param);
     free(array);
-    return length;
+    return i_length;
 }
