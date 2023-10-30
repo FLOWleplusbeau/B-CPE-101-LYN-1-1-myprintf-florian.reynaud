@@ -42,7 +42,7 @@ char *my_strdup(char const *src);
 //paenlevè
 char *my_str_add(char *dest, char c);
 void my_put_float(double nb);
-int my_putnbr_base(unsigned int nbr, char const *base);
+int my_putnbr_base(unsigned int nbr, char const *base, int *length);
 char *give_flag_parameters(char *format, int i);
 int is_char_attribut(char *format, int i);
 int is_length_modifier(char *format, int i);
