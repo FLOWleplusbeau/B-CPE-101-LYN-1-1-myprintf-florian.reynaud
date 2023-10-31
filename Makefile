@@ -26,6 +26,11 @@ SRC	=	my_printf.c	\
 	utility/give_nb_char.c	\
 	utility/my_getnbr.c	\
 	utility/give_precision.c	\
+	length_put/length_put.c	\
+	length_put/length_putnbr_base.c	\
+	utility/fill_flag.c	\
+	utility/get_attribut.c	\
+	put/put_operator.c	\
 
 OBJ	=	$(SRC:.c=.o)
 

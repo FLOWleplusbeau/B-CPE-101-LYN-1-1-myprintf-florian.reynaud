@@ -64,5 +64,13 @@ int my_getnbr(char const *str);
 int my_getnbr_i(char const *str, int i);
 int give_precision(char *param);
 double round_float(double nb, int digits);
+int length_putchar(char c);
+int length_putstr(char const *str);
+int length_put_nbr(int nb);
+int length_put_unsigned_nbr(unsigned int nb);
+int length_putnbr_base(unsigned int nbr, char const *base);
+void fill_flag(char *param, int put_length, int *length);
+char get_attribut(char *param);
+void put_operator_printf(int nb, char *param, int *length, int *put_length);
 
 #endif /* !HEADER_H_ */

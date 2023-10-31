@@ -31,7 +31,6 @@ int my_put_nbrl(int nb, int *length)
     char c = '0';
 
     if (nb < 0){
-        write(1, "-", 1);
         nb = nb * -1;
     }
     while (nb % 10 != 0){
