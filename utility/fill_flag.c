@@ -17,6 +17,30 @@ static char get_filler(char *param)
 void fill_flag(char *param, int put_length, int *length)
 {
     int min_length = give_nb_char(param);
+    char filler = ' ';
+
+    while (min_length - put_length > 0){
+        my_putcharl(filler, length);
+        min_length -= 1;
+    }
+    return;
+}
+
+void fill_flag_0(char *param, int put_length, int *length)
+{
+    int min_length = give_nb_char(param);
+    char filler = '0';
+
+    while (min_length - put_length > 0){
+        my_putcharl(filler, length);
+        min_length -= 1;
+    }
+    return;
+}
+
+void fill_flag_nb(char *param, int put_length, int *length)
+{
+    int min_length = give_nb_char(param);
     char filler = get_filler(param);
 
     while (min_length - put_length > 0){

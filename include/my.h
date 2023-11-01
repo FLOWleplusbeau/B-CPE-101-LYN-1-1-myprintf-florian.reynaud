@@ -72,5 +72,7 @@ int length_putnbr_base(unsigned int nbr, char const *base);
 void fill_flag(char *param, int put_length, int *length);
 char get_attribut(char *param);
 void put_operator_printf(int nb, char *param, int *length, int *put_length);
+void fill_flag_nb(char *param, int put_length, int *length);
+void fill_flag_0(char *param, int put_length, int *length);
 
 #endif /* !HEADER_H_ */
