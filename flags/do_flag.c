@@ -14,7 +14,7 @@ void make_array(int (**array)())
     for (int i = 0; i < 257; i++){
         array[i] = do_flag_d;
     }
-    array['i'] = do_flag_i;
+    array['i'] = do_flag_d;
     array['d'] = do_flag_d;
     array['c'] = do_flag_c;
     array['s'] = do_flag_s;
@@ -25,6 +25,7 @@ void make_array(int (**array)())
     array['f'] = do_flag_f;
     array['e'] = do_flag_e;
     array['E'] = do_flag_e_maj;
+    array['F'] = do_flag_f;
 }
 
 int do_flag(char *format, int i, va_list list, int *length)

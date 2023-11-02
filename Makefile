@@ -31,6 +31,8 @@ SRC	=	my_printf.c	\
 	utility/fill_flag.c	\
 	utility/get_attribut.c	\
 	put/put_operator.c	\
+	length_put/length_put_float.c	\
+	length_put/length_flag_e.c	\
 
 OBJ	=	$(SRC:.c=.o)
 

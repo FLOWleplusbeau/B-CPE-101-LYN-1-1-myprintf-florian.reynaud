@@ -7,35 +7,31 @@
 #include <stdarg.h>
 #include "../include/my.h"
 
+int put_prec(int *length, int prec)
+{
+    for (int i = 0; i < prec; i++){
+        my_putcharl('0', length);
+    }
+}
+
 int do_flag_d(va_list list, int *length, char *param)
 {
     int nb = va_arg(list, int);
     int put_length = length_put_nbr(nb);
+    int prec = give_precision(param) - put_length;
 
+    if (prec > 0)
+        put_length += prec;
     if (my_char_is_in_str(param, '-')){
         put_operator_printf(nb, param, length, &put_length);
-        my_put_nbrl(nb, length);
+        put_prec(length, prec);
+        my_put_unsigned_nbrl(nb, length);
         fill_flag_nb(param, put_length, length);
     } else {
         put_operator_printf(nb, param, length, &put_length);
         fill_flag_nb(param, put_length, length);
-        my_put_nbrl(nb, length);
-    }
-}
-
-int do_flag_i(va_list list, int *length, char *param)
-{
-    int nb = va_arg(list, int);
-    int put_length = length_put_nbr(nb);
-
-    if (my_char_is_in_str(param, '-')){
-        put_operator_printf(nb, param, length, &put_length);
-        my_put_nbrl(nb, length);
-        fill_flag_nb(param, put_length, length);
-    } else {
-        put_operator_printf(nb, param, length, &put_length);
-        fill_flag_nb(param, put_length, length);
-        my_put_nbrl(nb, length);
+        put_prec(length, prec);
+        my_put_unsigned_nbrl(nb, length);
     }
 }
 

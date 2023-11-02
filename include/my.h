@@ -74,5 +74,10 @@ char get_attribut(char *param);
 void put_operator_printf(int nb, char *param, int *length, int *put_length);
 void fill_flag_nb(char *param, int put_length, int *length);
 void fill_flag_0(char *param, int put_length, int *length);
+int put_prec(int *length, int prec);
+int length_my_put_float(double nb);
+int length_my_put_float_digits(double nb, int digits);
+int space_flag_maj_e_digits(va_list list, int *length, char *param, int digits);
+int putl_flag_e_digits(double nb, int digits , char e);
 
 #endif /* !HEADER_H_ */
