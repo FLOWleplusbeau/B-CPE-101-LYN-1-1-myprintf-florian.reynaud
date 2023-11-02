@@ -119,7 +119,8 @@ static int space_flag_e(va_list list, int *length, char *param, char e)
     }
 }
 
-static int space_flag_e_digits(va_list list, int *length, char *param, int digits)
+static int space_flag_e_digits(va_list list, int *length,
+    char *param, int digits)
 {
     double nb = va_arg(list, double);
     int put_length = 6 + digits;

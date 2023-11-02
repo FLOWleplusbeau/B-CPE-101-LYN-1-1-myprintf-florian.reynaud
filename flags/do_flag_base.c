@@ -108,7 +108,8 @@ static int space_flag_f(va_list list, int *length, char *param)
     }
 }
 
-static int space_flag_f_digits(va_list list, int *length, char *param, int digits)
+static int space_flag_f_digits(va_list list, int *length,
+    char *param, int digits)
 {
     double nb = va_arg(list, double);
     int put_length = length_my_put_float_digits(nb, digits);

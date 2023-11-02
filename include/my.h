@@ -77,7 +77,7 @@ void fill_flag_0(char *param, int put_length, int *length);
 int put_prec(int *length, int prec);
 int length_my_put_float(double nb);
 int length_my_put_float_digits(double nb, int digits);
-int space_flag_maj_e_digits(va_list list, int *length, char *param, int digits);
+int space_flag_maj_e_digits(va_list list, int *length, char *param, int digit);
 int putl_flag_e_digits(double nb, int digits , char e);
 
 #endif /* !HEADER_H_ */
