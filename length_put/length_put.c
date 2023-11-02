@@ -32,7 +32,6 @@ int length_put_nbr(int nb)
     int length = 0;
 
     if (nb < 0){
-        length += 1;
         nb = nb * -1;
     }
     while (nb % 10 != 0){

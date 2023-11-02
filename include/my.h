@@ -79,5 +79,6 @@ int length_my_put_float(double nb);
 int length_my_put_float_digits(double nb, int digits);
 int space_flag_maj_e_digits(va_list list, int *length, char *param, int digit);
 int putl_flag_e_digits(double nb, int digits , char e);
+int get_has_op(int nb, char *param, int *length);
 
 #endif /* !HEADER_H_ */
