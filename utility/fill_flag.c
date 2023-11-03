@@ -8,8 +8,16 @@
 
 static char get_filler(char *param)
 {
-    if (my_char_is_in_str(param, '0') && ! my_char_is_in_str(param, '-')){
-        return '0';
+    int i = 0;
+
+    if (my_char_is_in_str(param, '-')){
+        return ' ';
+    }
+    while (is_char_attribut(param, i) && param[i] != '\0'){
+        if (param[i] == '0'){
+            return '0';
+        }
+        i++;
     }
     return ' ';
 }
