@@ -14,7 +14,6 @@ static int do_flag_x_left(unsigned long long nb, char *param,
 
     if (prec > 0)
         put_length += prec;
-    put_operator_printf(nb, param, length, &put_length);
     put_prec(length, prec);
     my_putnbr_base(nb, "0123456789abcdef", length);
     fill_flag_nb(param, put_length, length);
@@ -27,7 +26,6 @@ static int do_flag_x_right(unsigned long long nb, char *param,
 
     if (prec > 0)
         put_length += prec;
-    put_operator_printf(nb, param, length, &put_length);
     fill_flag_nb(param, put_length, length);
     put_prec(length, prec);
     my_putnbr_base(nb, "0123456789abcdef", length);

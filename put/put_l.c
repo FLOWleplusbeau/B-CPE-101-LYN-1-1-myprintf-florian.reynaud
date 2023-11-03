@@ -46,7 +46,7 @@ int my_put_nbrl(long long nb, int *length)
     return (0);
 }
 
-int my_put_unsigned_nbrl(unsigned int nb, int *length)
+int my_put_unsigned_nbrl(unsigned long long nb, int *length)
 {
     char c = '0';
 

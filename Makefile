@@ -42,7 +42,7 @@ SRC	=	my_printf.c	\
 	flags/do_flag_x.c	\
 	flags/do_flag_x_maj.c	\
 	flags/do_flag_p.c	\
-
+	flags/do_flag_u.c	\
 
 OBJ	=	$(SRC:.c=.o)
 

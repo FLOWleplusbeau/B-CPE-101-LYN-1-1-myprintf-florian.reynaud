@@ -45,7 +45,7 @@ int length_put_nbr(long long nb)
     return length;
 }
 
-int length_put_unsigned_nbr(unsigned int nb)
+int length_put_unsigned_nbr(unsigned long long nb)
 {
     int length = 0;
 
