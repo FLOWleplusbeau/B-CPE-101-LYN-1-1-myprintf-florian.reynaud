@@ -36,6 +36,9 @@ SRC	=	my_printf.c	\
 	flags/do_flag_f.c	\
 	flags/do_flag_g.c	\
 	flags/do_flag_n.c
+	utility/get_length_modifier.c	\
+	flags/do_flag_d.c	\
+
 
 OBJ	=	$(SRC:.c=.o)
 

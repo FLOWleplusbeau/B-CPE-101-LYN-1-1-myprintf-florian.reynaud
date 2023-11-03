@@ -53,7 +53,7 @@ void my_put_float_digits(double nb, int digits);
 void my_put_float(double nb);
 void my_putcharl(char c, int *length);
 int my_putstrl(char const *str, int *length);
-int my_put_nbrl(int nb, int *length);
+int my_put_nbrl(long long nb, int *length);
 char give_flag(char *format, int i);
 int do_flag(char *format, int i, va_list list, int *length);
 int my_char_is_in_str(char *str, char c);
@@ -66,12 +66,13 @@ int give_precision(char *param);
 double round_float(double nb, int digits);
 int length_putchar(char c);
 int length_putstr(char const *str);
-int length_put_nbr(int nb);
+int length_put_nbr(long long nb);
 int length_put_unsigned_nbr(unsigned int nb);
 int length_putnbr_base(unsigned int nbr, char const *base);
 void fill_flag(char *param, int put_length, int *length);
 char get_attribut(char *param);
-void put_operator_printf(int nb, char *param, int *length, int *put_length);
+void put_operator_printf(long long nb, char *param,
+    int *length, int *put_length);
 void fill_flag_nb(char *param, int put_length, int *length);
 void fill_flag_0(char *param, int put_length, int *length);
 int put_prec(int *length, int prec);
@@ -79,12 +80,15 @@ int length_my_put_float(double nb);
 int length_my_put_float_digits(double nb, int digits);
 int space_flag_maj_e_digits(double nb, int *length, char *param, int digit);
 int putl_flag_e_digits(double nb, int digits , char e);
-int get_has_op(int nb, char *param, int *length);
 int space_flag_e_digits(double nb, int *length,
     char *param, int digits);
 int space_flag_e(double nb, int *length, char *param, char e);
 int space_flag_f_digits(double nb, int *length,
     char *param, int digits);
 int space_flag_f(double nb, int *length, char *param);
+=======
+int get_has_op(long long nb, char *param, int *length);
+char get_length_modifier(char *param);
+
 
 #endif /* !HEADER_H_ */
