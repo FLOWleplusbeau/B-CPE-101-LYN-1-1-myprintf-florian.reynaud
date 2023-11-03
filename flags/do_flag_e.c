@@ -78,7 +78,6 @@ static void put_flag_neg_e_digits(double nb, int digits, char e, int *length)
 static int putl_flag_e(double nb, char e, int *length)
 {
     if (nb < 0){
-        my_putcharl('-', length);
         nb = nb * -1;
     }
     if (nb < 1){
@@ -92,7 +91,6 @@ static int putl_flag_e(double nb, char e, int *length)
 int putl_flag_e_digits(double nb, int digits , char e, int *length)
 {
     if (nb < 0){
-        my_putcharl('-', length);
         nb = nb * -1;
     }
     if (nb < 1){
@@ -105,15 +103,15 @@ int putl_flag_e_digits(double nb, int digits , char e, int *length)
 
 int space_flag_e(double nb, int *length, char *param, char e)
 {
-    int put_length = 12;
+    int put_length = 12 + get_has_op(nb, param, length);
 
     if (my_char_is_in_str(param, '-')){
         put_operator_printf(nb, param, length, &put_length);
         putl_flag_e(nb, e, length);
         fill_flag_nb(param, put_length, length);
     } else {
-        put_operator_printf(nb, param, length, &put_length);
         fill_flag_nb(param, put_length, length);
+        put_operator_printf(nb, param, length, &put_length);
         putl_flag_e(nb, e, length);
     }
 }
@@ -121,15 +119,15 @@ int space_flag_e(double nb, int *length, char *param, char e)
 int space_flag_e_digits(double nb, int *length,
     char *param, int digits)
 {
-    int put_length = 6 + digits;
+    int put_length = 6 + digits + get_has_op(nb, param, length);
 
     if (my_char_is_in_str(param, '-')){
         put_operator_printf(nb, param, length, &put_length);
         putl_flag_e_digits(nb, digits, 'e', length);
         fill_flag_nb(param, put_length, length);
     } else {
-        put_operator_printf(nb, param, length, &put_length);
         fill_flag_nb(param, put_length, length);
+        put_operator_printf(nb, param, length, &put_length);
         putl_flag_e_digits(nb, digits, 'e', length);
     }
 }
