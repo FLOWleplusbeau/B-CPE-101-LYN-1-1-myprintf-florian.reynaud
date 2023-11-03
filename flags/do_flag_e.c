@@ -103,9 +103,8 @@ int putl_flag_e_digits(double nb, int digits , char e)
     return 0;
 }
 
-static int space_flag_e(va_list list, int *length, char *param, char e)
+int space_flag_e(double nb, int *length, char *param, char e)
 {
-    double nb = va_arg(list, double);
     int put_length = 12;
 
     if (my_char_is_in_str(param, '-')){
@@ -119,10 +118,9 @@ static int space_flag_e(va_list list, int *length, char *param, char e)
     }
 }
 
-static int space_flag_e_digits(va_list list, int *length,
+int space_flag_e_digits(double nb, int *length,
     char *param, int digits)
 {
-    double nb = va_arg(list, double);
     int put_length = 6 + digits;
 
     if (my_char_is_in_str(param, '-')){
@@ -139,21 +137,23 @@ static int space_flag_e_digits(va_list list, int *length,
 int do_flag_e(va_list list, int *length, char *param)
 {
     int di = give_precision(param);
+    double nb = va_arg(list, double);
 
     if (di == -1){
-        space_flag_e(list, length, param, 'e');
+        space_flag_e(nb, length, param, 'e');
     } else {
-        space_flag_e_digits(list, length, param, di);
+        space_flag_e_digits(nb, length, param, di);
     }
 }
 
 int do_flag_e_maj(va_list list, int *length, char *param)
 {
     int di = give_precision(param);
+    double nb = va_arg(list, double);
 
     if (di == -1){
-        space_flag_e(list, length, param, 'E');
+        space_flag_e(nb, length, param, 'E');
     } else {
-        space_flag_maj_e_digits(list, length, param, di);
+        space_flag_maj_e_digits(nb, length, param, di);
     }
 }

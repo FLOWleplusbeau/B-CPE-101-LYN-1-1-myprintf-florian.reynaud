@@ -7,9 +7,8 @@
 
 #include "../include/my.h"
 
-int space_flag_maj_e_digits(va_list list, int *length, char *param, int digits)
+int space_flag_maj_e_digits(double nb, int *length, char *param, int digits)
 {
-    double nb = va_arg(list, double);
     int put_length = 6 + digits;
 
     if (my_char_is_in_str(param, '-')){
