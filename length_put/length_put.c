@@ -27,7 +27,7 @@ static int print_number(char c)
     return 1;
 }
 
-int length_put_nbr(int nb)
+int length_put_nbr(long long nb)
 {
     int length = 0;
 

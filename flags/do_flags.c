@@ -14,30 +14,6 @@ int put_prec(int *length, int prec)
     }
 }
 
-int do_flag_d(va_list list, int *length, char *param)
-{
-    int nb = va_arg(list, int);
-    int put_length = length_put_nbr(nb);
-    int prec = give_precision(param) - put_length;
-    int has_op = get_has_op(nb, param, length);
-
-    if (! my_char_is_in_str(param, '-'))
-        put_length += has_op;
-    if (prec > 0)
-        put_length += prec;
-    if (my_char_is_in_str(param, '-')){
-        put_operator_printf(nb, param, length, &put_length);
-        put_prec(length, prec);
-        my_put_nbrl(nb, length);
-        fill_flag_nb(param, put_length, length);
-    } else {
-        fill_flag_nb(param, put_length, length);
-        put_operator_printf(nb, param, length, &put_length);
-        put_prec(length, prec);
-        my_put_nbrl(nb, length);
-    }
-}
-
 int do_flag_c(va_list list, int *length, char *param)
 {
     int c = va_arg(list, int);

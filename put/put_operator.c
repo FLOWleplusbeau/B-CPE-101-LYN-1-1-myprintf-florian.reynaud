@@ -6,7 +6,7 @@
 */
 #include"../include/my.h"
 
-static void choose_op_plus(int nb, int *length)
+static void choose_op_plus(long long nb, int *length)
 {
     if (nb < 0){
         my_putcharl('-', length);
@@ -16,7 +16,7 @@ static void choose_op_plus(int nb, int *length)
     return;
 }
 
-static void choose_op_space(int nb, int *length)
+static void choose_op_space(long long nb, int *length)
 {
     if (nb < 0){
         my_putcharl('-', length);
@@ -26,7 +26,7 @@ static void choose_op_space(int nb, int *length)
     return;
 }
 
-static void choose_op_void(int nb, int *length, int *put_length)
+static void choose_op_void(long long nb, int *length, int *put_length)
 {
     if (nb < 0){
         my_putcharl('-', length);
@@ -35,7 +35,8 @@ static void choose_op_void(int nb, int *length, int *put_length)
     return;
 }
 
-void put_operator_printf(int nb, char *param, int *length, int *put_length)
+void put_operator_printf(long long nb, char *param,
+    int *length, int *put_length)
 {
     char operator = get_attribut(param);
 
@@ -59,7 +60,7 @@ static int has_op_is_neg(int nb)
     return 0;
 }
 
-int get_has_op(int nb, char *param, int *length)
+int get_has_op(long long nb, char *param, int *length)
 {
     char operator = get_attribut(param);
 

@@ -26,7 +26,7 @@ static void print_number(char c)
     write(1, &c, 1);
 }
 
-int my_put_nbrl(int nb, int *length)
+int my_put_nbrl(long long nb, int *length)
 {
     char c = '0';
 
