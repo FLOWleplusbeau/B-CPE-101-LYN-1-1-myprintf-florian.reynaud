@@ -8,48 +8,6 @@
 #include <stdarg.h>
 #include "../include/my.h"
 
-int do_flag_x_maj(va_list list, int *length, char *param)
-{
-    int nb = va_arg(list, int);
-    int put_length = length_putnbr_base(nb, "0123456789ABCDEF");
-    int prec = give_precision(param) - put_length;
-
-    if (prec > 0)
-        put_length += prec;
-    if (my_char_is_in_str(param, '-')){
-        put_operator_printf(nb, param, length, &put_length);
-        put_prec(length, prec);
-        my_putnbr_base(nb, "0123456789ABCDEF", length);
-        fill_flag_nb(param, put_length, length);
-    } else {
-        put_operator_printf(nb, param, length, &put_length);
-        fill_flag_nb(param, put_length, length);
-        put_prec(length, prec);
-        my_putnbr_base(nb, "0123456789ABCDEF", length);
-    }
-}
-
-int do_flag_x(va_list list, int *length, char *param)
-{
-    int nb = va_arg(list, int);
-    int put_length = length_putnbr_base(nb, "0123456789ABCDEF");
-    int prec = give_precision(param) - put_length;
-
-    if (prec > 0)
-        put_length += prec;
-    if (my_char_is_in_str(param, '-')){
-        put_operator_printf(nb, param, length, &put_length);
-        put_prec(length, prec);
-        my_putnbr_base(nb, "0123456789abcdef", length);
-        fill_flag_nb(param, put_length, length);
-    } else {
-        put_operator_printf(nb, param, length, &put_length);
-        fill_flag_nb(param, put_length, length);
-        put_prec(length, prec);
-        my_putnbr_base(nb, "0123456789abcdef", length);
-    }
-}
-
 int do_flag_o(va_list list, int *length, char *param)
 {
     int nb = va_arg(list, int);

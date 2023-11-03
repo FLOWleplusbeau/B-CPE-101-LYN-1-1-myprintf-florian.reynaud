@@ -7,28 +7,18 @@
 #include <stdarg.h>
 #include "../include/my.h"
 
-static int put_flag_p(unsigned long nbr, char const *base, int *length)
+static int put_flag_p(void *pointer, char const *base, int *length)
 {
     int div = 1;
-    int res;
+    unsigned long long res;
 
-    if (nbr < 0){
-        my_putcharl('-', length);
-        nbr = nbr * - 1;
-    }
-    while ((nbr / div) >= (my_strlen(base)) - 1){
-        div = div *(my_strlen(base));
-    }
-    for (; div > 0; div = div / (my_strlen(base) - 1)){
-        res = (nbr / div) % (my_strlen(base));
-        my_putcharl(base[res], length);
-    }
+    my_putstrl("0x", length);
+    my_putnbr_base((unsigned long long)pointer, "0123456789abcdef", length);
 }
 
 int do_flag_p(va_list list, int *length, char *param)
 {
     void *pointer = va_arg(list, void *);
-    unsigned long int_pointer = (unsigned long)pointer;
 
-    put_flag_p(int_pointer, "0123456789abcdef", length);
+    put_flag_p(pointer, "0123456789abcdef", length);
 }

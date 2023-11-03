@@ -26,6 +26,8 @@ void make_array(int (**array)())
     array['e'] = do_flag_e;
     array['E'] = do_flag_e_maj;
     array['F'] = do_flag_f;
+    array['%'] = do_flag_percent;
+    array['p'] = do_flag_p;
     array['g'] = do_flag_g;
     array['G'] = do_flag_maj_g;
     array['n'] = do_flag_n;

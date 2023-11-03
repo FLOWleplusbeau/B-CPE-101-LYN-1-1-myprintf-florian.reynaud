@@ -6,22 +6,19 @@
 */
 #include "../include/my.h"
 
-int length_putnbr_base(unsigned int nbr, char const *base)
+int length_putnbr_base(unsigned long long nbr, char const *base)
 {
-    int div = 1;
-    int res;
-    int length = 0;
+    int base_len = my_strlen(base);
+    unsigned long long unit;
+    char unit_char;
+    int put_length = 0;
 
-    if (nbr < 0){
-        length += length_putchar('-');
-        nbr = nbr * - 1;
+    if (nbr == 0){
+        return (0);
     }
-    while ((nbr / div) >= (my_strlen(base)) - 1){
-        div = div *(my_strlen(base));
-    }
-    for (; div > 0; div = div / (my_strlen(base) - 1)){
-        res = (nbr / div) % (my_strlen(base));
-        length += length_putchar(base[res]);
-    }
-    return length;
+    unit = nbr % base_len;
+    unit_char = base[unit];
+    put_length += 1;
+    put_length += length_putnbr_base(nbr / base_len, base);
+    return put_length;
 }

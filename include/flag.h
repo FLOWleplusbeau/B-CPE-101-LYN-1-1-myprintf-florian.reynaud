@@ -20,6 +20,8 @@ int do_flag_u(va_list list, int *length, char *param);
 int do_flag_f(va_list list, int *length, char *param);
 int do_flag_e(va_list list, int *length, char *param);
 int do_flag_e_maj(va_list list, int *length, char *param);
+int do_flag_percent(va_list list, int *length, char *param);
+int do_flag_p(va_list list, int *length, char *param);
 int do_flag_g(va_list list, int *length, char *param);
 int do_flag_maj_g(va_list list, int *length, char *param);
 int do_flag_n(va_list list, int *length, char *param);
