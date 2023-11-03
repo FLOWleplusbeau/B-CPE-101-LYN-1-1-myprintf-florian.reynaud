@@ -14,6 +14,8 @@ static int do_flag_d_left(long long nb, char *param,
 
     if (! my_char_is_in_str(param, '-'))
         put_length += has_op;
+    if (put_length > 0 && ! my_char_is_in_str(param, '.'))
+        prec = give_nb_char(param) - put_length;
     if (prec > 0)
         put_length += prec;
     put_operator_printf(nb, param, length, &put_length);
@@ -30,6 +32,8 @@ static int do_flag_d_right(long long nb, char *param,
 
     if (! my_char_is_in_str(param, '-'))
         put_length += has_op;
+    if (put_length > 0 && ! my_char_is_in_str(param, '.'))
+        prec = give_nb_char(param) - put_length;
     if (prec > 0)
         put_length += prec;
     fill_flag_nb(param, put_length, length);
