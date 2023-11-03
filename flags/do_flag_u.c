@@ -74,7 +74,7 @@ static int do_flag_u_char(va_list list, int *length, char *param)
 
 static int do_flag_u_long(va_list list, int *length, char *param)
 {
-    unsigned long nb = va_arg(list,unsigned long);
+    unsigned long nb = va_arg(list, unsigned long);
     int put_length = length_put_unsigned_nbr(nb);
 
     if (my_char_is_in_str(param, '-')){
