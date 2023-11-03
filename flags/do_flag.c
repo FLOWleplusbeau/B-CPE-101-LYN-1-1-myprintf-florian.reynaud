@@ -28,6 +28,9 @@ void make_array(int (**array)())
     array['F'] = do_flag_f;
     array['%'] = do_flag_percent;
     array['p'] = do_flag_p;
+    array['g'] = do_flag_g;
+    array['G'] = do_flag_maj_g;
+    array['n'] = do_flag_n;
 }
 
 int do_flag(char *format, int i, va_list list, int *length)

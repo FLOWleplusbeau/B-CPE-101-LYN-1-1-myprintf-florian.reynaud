@@ -33,12 +33,16 @@ SRC	=	my_printf.c	\
 	put/put_operator.c	\
 	length_put/length_put_float.c	\
 	length_put/length_flag_e.c	\
+	flags/do_flag_f.c	\
+	flags/do_flag_g.c	\
+	flags/do_flag_n.c
 	utility/get_length_modifier.c	\
 	flags/do_flag_d.c	\
 	flags/do_flag_percent.c	\
 	flags/do_flag_x.c	\
 	flags/do_flag_x_maj.c	\
 	flags/do_flag_p.c	\
+
 
 OBJ	=	$(SRC:.c=.o)
 
