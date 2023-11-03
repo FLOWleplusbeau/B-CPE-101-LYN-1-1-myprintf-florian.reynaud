@@ -42,15 +42,14 @@ char *my_strdup(char const *src);
 //paenlevè
 int my_printf(char *format, ...);
 char *my_str_add(char *dest, char c);
-void my_put_float(double nb);
 int my_putnbr_base(unsigned long long nbr, char const *base, int *length);
 char *give_flag_parameters(char *format, int i);
 int is_char_attribut(char *format, int i);
 int is_length_modifier(char *format, int i);
 int is_precision(char *format, int i);
 int is_flag(char *format, int i);
-void my_put_float_digits(double nb, int digits);
-void my_put_float(double nb);
+void my_put_float_digits(double nb, int digits, int *length);
+void my_put_float(double nb, int *length);
 void my_putcharl(char c, int *length);
 int my_putstrl(char const *str, int *length);
 int my_put_nbrl(long long nb, int *length);
@@ -79,7 +78,7 @@ int put_prec(int *length, int prec);
 int length_my_put_float(double nb);
 int length_my_put_float_digits(double nb, int digits);
 int space_flag_maj_e_digits(double nb, int *length, char *param, int digit);
-int putl_flag_e_digits(double nb, int digits , char e);
+int putl_flag_e_digits(double nb, int digits , char e, int *length);
 int space_flag_e_digits(double nb, int *length,
     char *param, int digits);
 int space_flag_e(double nb, int *length, char *param, char e);

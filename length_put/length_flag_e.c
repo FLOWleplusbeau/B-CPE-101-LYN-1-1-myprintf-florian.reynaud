@@ -13,11 +13,11 @@ int space_flag_maj_e_digits(double nb, int *length, char *param, int digits)
 
     if (my_char_is_in_str(param, '-')){
         put_operator_printf(nb, param, length, &put_length);
-        putl_flag_e_digits(nb, digits, 'E');
+        putl_flag_e_digits(nb, digits, 'E', length);
         fill_flag_nb(param, put_length, length);
     } else {
         put_operator_printf(nb, param, length, &put_length);
         fill_flag_nb(param, put_length, length);
-        putl_flag_e_digits(nb, digits, 'E');
+        putl_flag_e_digits(nb, digits, 'E', length);
     }
 }

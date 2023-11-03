@@ -13,12 +13,12 @@ int space_flag_f(double nb, int *length, char *param)
 
     if (my_char_is_in_str(param, '-')){
         put_operator_printf(nb, param, length, &put_length);
-        my_put_float(round_float(nb, 6));
+        my_put_float(round_float(nb, 6), length);
         fill_flag_nb(param, put_length, length);
     } else {
         put_operator_printf(nb, param, length, &put_length);
         fill_flag_nb(param, put_length, length);
-        my_put_float(round_float(nb, 6));
+        my_put_float(round_float(nb, 6), length);
     }
 }
 
@@ -29,12 +29,12 @@ int space_flag_f_digits(double nb, int *length,
 
     if (my_char_is_in_str(param, '-')){
         put_operator_printf(nb, param, length, &put_length);
-        my_put_float_digits(round_float(nb, digits), digits);
+        my_put_float_digits(round_float(nb, digits), digits, length);
         fill_flag_nb(param, put_length, length);
     } else {
         put_operator_printf(nb, param, length, &put_length);
         fill_flag_nb(param, put_length, length);
-        my_put_float_digits(round_float(nb, digits), digits);
+        my_put_float_digits(round_float(nb, digits), digits, length);
     }
 }
 

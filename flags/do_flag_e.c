@@ -6,7 +6,7 @@
 */
 #include "../include/my.h"
 
-static void put_flag_e(double nb, char e)
+static void put_flag_e(double nb, char e, int *length)
 {
     int int_nb = (int)nb;
     int count;
@@ -15,16 +15,16 @@ static void put_flag_e(double nb, char e)
         nb = nb / 10;
     }
     nb = round_float(nb, 6);
-    my_put_float(nb);
-    my_putchar(e);
-    my_putchar('+');
+    my_put_float(nb, length);
+    my_putcharl(e, length);
+    my_putcharl('+', length);
     if (count < 10)
-        my_putchar('0');
-    my_put_nbr(count);
+        my_putcharl('0', length);
+    my_put_nbrl(count, length);
     return;
 }
 
-static void put_flag_e_digits(double nb, int digits, char e)
+static void put_flag_e_digits(double nb, int digits, char e, int *length)
 {
     int count;
 
@@ -32,16 +32,16 @@ static void put_flag_e_digits(double nb, int digits, char e)
         nb = nb / 10;
     }
     nb = round_float(nb, digits);
-    my_put_float_digits(nb, digits);
-    my_putchar(e);
-    my_putchar('+');
+    my_put_float_digits(nb, digits, length);
+    my_putcharl(e, length);
+    my_putcharl('+', length);
     if (count < 10)
-        my_putchar('0');
-    my_put_nbr(count);
+        my_putcharl('0', length);
+    my_put_nbrl(count, length);
     return;
 }
 
-static void put_flag_neg_e(double nb, char e)
+static void put_flag_neg_e(double nb, char e, int *length)
 {
     int int_nb = (int)nb;
     int count;
@@ -50,55 +50,55 @@ static void put_flag_neg_e(double nb, char e)
     for (count = 0; nb <= 1; count++){
         nb = nb * 10;
     }
-    my_put_float(nb);
-    my_putchar(e);
-    my_putchar('-');
+    my_put_float(nb, length);
+    my_putcharl(e, length);
+    my_putcharl('-', length);
     if (count < 10)
-        my_putchar('0');
-    my_put_nbr(count);
+        my_putcharl('0', length);
+    my_put_nbrl(count, length);
     return;
 }
 
-static void put_flag_neg_e_digits(double nb, int digits, char e)
+static void put_flag_neg_e_digits(double nb, int digits, char e, int *length)
 {
     int count;
 
     for (count = 0; nb <= 1; count++){
         nb = nb * 10;
     }
-    my_put_float_digits(nb, digits);
-    my_putchar(e);
-    my_putchar('-');
+    my_put_float_digits(nb, digits, length);
+    my_putcharl(e, length);
+    my_putcharl('-', length);
     if (count < 10)
-        my_putchar('0');
-    my_put_nbr(count);
+        my_putcharl('0', length);
+    my_put_nbrl(count, length);
     return;
 }
 
-static int putl_flag_e(double nb, char e)
+static int putl_flag_e(double nb, char e, int *length)
 {
     if (nb < 0){
-        my_putchar('-');
+        my_putcharl('-', length);
         nb = nb * -1;
     }
     if (nb < 1){
-        put_flag_neg_e(nb, e);
+        put_flag_neg_e(nb, e, length);
     } else {
-        put_flag_e(nb, e);
+        put_flag_e(nb, e, length);
     }
     return 0;
 }
 
-int putl_flag_e_digits(double nb, int digits , char e)
+int putl_flag_e_digits(double nb, int digits , char e, int *length)
 {
     if (nb < 0){
-        my_putchar('-');
+        my_putcharl('-', length);
         nb = nb * -1;
     }
     if (nb < 1){
-        put_flag_neg_e_digits(nb, digits, e);
+        put_flag_neg_e_digits(nb, digits, e, length);
     } else {
-        put_flag_e_digits(nb, digits, e);
+        put_flag_e_digits(nb, digits, e, length);
     }
     return 0;
 }
@@ -109,12 +109,12 @@ int space_flag_e(double nb, int *length, char *param, char e)
 
     if (my_char_is_in_str(param, '-')){
         put_operator_printf(nb, param, length, &put_length);
-        putl_flag_e(nb, e);
+        putl_flag_e(nb, e, length);
         fill_flag_nb(param, put_length, length);
     } else {
         put_operator_printf(nb, param, length, &put_length);
         fill_flag_nb(param, put_length, length);
-        putl_flag_e(nb, e);
+        putl_flag_e(nb, e, length);
     }
 }
 
@@ -125,12 +125,12 @@ int space_flag_e_digits(double nb, int *length,
 
     if (my_char_is_in_str(param, '-')){
         put_operator_printf(nb, param, length, &put_length);
-        putl_flag_e_digits(nb, digits, 'e');
+        putl_flag_e_digits(nb, digits, 'e', length);
         fill_flag_nb(param, put_length, length);
     } else {
         put_operator_printf(nb, param, length, &put_length);
         fill_flag_nb(param, put_length, length);
-        putl_flag_e_digits(nb, digits, 'e');
+        putl_flag_e_digits(nb, digits, 'e', length);
     }
 }
 

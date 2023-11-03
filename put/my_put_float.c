@@ -27,35 +27,35 @@ double round_float(double nb, int digits)
     return old_nb;
 }
 
-void my_put_float(double nb)
+void my_put_float(double nb, int *length)
 {
     int nb_int = (int)nb;
 
-    my_put_nbr(nb_int);
-    my_putchar('.');
+    my_put_nbrl(nb_int, length);
+    my_putcharl('.', length);
     for (int i = 0; i < 6; i++){
         nb = nb - nb_int;
         nb = nb * 10;
         nb_int = (int)nb;
         nb_int = nb_int % 10;
-        my_put_nbr(nb_int);
+        my_put_nbrl(nb_int, length);
     }
     return;
 }
 
-void my_put_float_digits(double nb, int digits)
+void my_put_float_digits(double nb, int digits, int *length)
 {
     int nb_int = (int)nb;
 
-    my_put_nbr(nb_int);
+    my_put_nbrl(nb_int, length);
     if (digits > 0)
-        my_putchar('.');
+        my_putcharl('.', length);
     for (int i = 0; i < digits; i++){
         nb = nb - nb_int;
         nb = nb * 10;
         nb_int = (int)nb;
         nb_int = nb_int % 10;
-        my_put_nbr(nb_int);
+        my_put_nbrl(nb_int, length);
     }
     return;
 }
