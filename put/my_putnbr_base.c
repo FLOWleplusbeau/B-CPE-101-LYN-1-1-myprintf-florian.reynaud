@@ -8,20 +8,18 @@
 #include <unistd.h>
 #include "../include/my.h"
 
-int my_putnbr_base(unsigned int nbr, char const *base, int *length)
+int my_putnbr_base(unsigned long long nbr, char const *base, int *length)
 {
-    int div = 1;
-    int res;
+    int base_len = my_strlen(base);
+    unsigned long long unit;
+    char unit_char;
 
-    if (nbr < 0){
-        my_putcharl('-', length);
-        nbr = nbr * - 1;
+    if (nbr == 0){
+        return (0);
     }
-    while ((nbr / div) >= (my_strlen(base)) - 1){
-        div = div *(my_strlen(base));
-    }
-    for (; div > 0; div = div / (my_strlen(base) - 1)){
-        res = (nbr / div) % (my_strlen(base));
-        my_putcharl(base[res], length);
-    }
+    unit = nbr % base_len;
+    unit_char = base[unit];
+    my_putnbr_base(nbr / base_len, base, length);
+    my_putcharl(unit_char, length);
+    return (0);
 }
