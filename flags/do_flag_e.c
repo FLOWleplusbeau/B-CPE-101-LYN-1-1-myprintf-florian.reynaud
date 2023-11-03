@@ -50,6 +50,7 @@ static void put_flag_neg_e(double nb, char e, int *length)
     for (count = 0; nb <= 1; count++){
         nb = nb * 10;
     }
+    nb = round_float(nb, 6);
     my_put_float(nb, length);
     my_putcharl(e, length);
     my_putcharl('-', length);
@@ -66,6 +67,7 @@ static void put_flag_neg_e_digits(double nb, int digits, char e, int *length)
     for (count = 0; nb <= 1; count++){
         nb = nb * 10;
     }
+    nb = round_float(nb, digits);
     my_put_float_digits(nb, digits, length);
     my_putcharl(e, length);
     my_putcharl('-', length);
