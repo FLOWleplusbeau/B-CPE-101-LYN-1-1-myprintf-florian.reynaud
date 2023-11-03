@@ -86,7 +86,6 @@ int space_flag_e(double nb, int *length, char *param, char e);
 int space_flag_f_digits(double nb, int *length,
     char *param, int digits);
 int space_flag_f(double nb, int *length, char *param);
-=======
 int get_has_op(long long nb, char *param, int *length);
 char get_length_modifier(char *param);
 

@@ -7,7 +7,8 @@
 #include <stdarg.h>
 #include "../include/my.h"
 
-static int do_flag_x_left(unsigned long long nb, char *param, int *length, int put_length)
+static int do_flag_x_left(unsigned long long nb, char *param,
+    int *length, int put_length)
 {
     int prec = give_precision(param) - put_length;
 
@@ -19,7 +20,8 @@ static int do_flag_x_left(unsigned long long nb, char *param, int *length, int p
     fill_flag_nb(param, put_length, length);
 }
 
-static int do_flag_x_right(unsigned long long nb, char *param, int *length, int put_length)
+static int do_flag_x_right(unsigned long long nb, char *param,
+    int *length, int put_length)
 {
     int prec = give_precision(param) - put_length;
 

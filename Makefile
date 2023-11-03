@@ -35,7 +35,7 @@ SRC	=	my_printf.c	\
 	length_put/length_flag_e.c	\
 	flags/do_flag_f.c	\
 	flags/do_flag_g.c	\
-	flags/do_flag_n.c
+	flags/do_flag_n.c	\
 	utility/get_length_modifier.c	\
 	flags/do_flag_d.c	\
 	flags/do_flag_percent.c	\
