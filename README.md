@@ -5,7 +5,7 @@
 
 ![Language](https://img.shields.io/badge/language-C-blue)
 ![Year](https://img.shields.io/badge/year-2023-lightgrey)
-![Status](https://img.shields.io/badge/status-validated-brightgreen)
+![Grade](https://img.shields.io/badge/grade-75%2F92_tests-brightgreen)
 
 </div>
 
