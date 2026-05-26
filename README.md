@@ -1,7 +1,7 @@
 <div align="center">
 
 # my_printf
-### Epitech - C Programming Essentials | Year 1 (Lyon)
+### Epitech - C Programming Essentials | Year 1
 
 ![Language](https://img.shields.io/badge/language-C-blue)
 ![Year](https://img.shields.io/badge/year-2023-lightgrey)
@@ -67,5 +67,5 @@ Every output function takes an `int *length` and increments it as it writes. Thi
 
 ---
 
-Built as part of my Epitech curriculum (Promo 2028, Lyon).
+Built as part of my Epitech curriculum (Promo 2028).
 Check the rest of my projects at [github.com/FLOWleplusbeau](https://github.com/FLOWleplusbeau).
