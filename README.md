@@ -3,9 +3,9 @@
 # my_printf
 ### Epitech - C Programming Essentials | Year 1
 
-![Language](https://img.shields.io/badge/language-C-blue)
-![Year](https://img.shields.io/badge/year-2023-lightgrey)
-![Grade](https://img.shields.io/badge/grade-75%2F92_tests-brightgreen)
+![Language](https://img.shields.io/badge/language-C-blue?style=for-the-badge)
+![Year](https://img.shields.io/badge/year-2023-lightgrey?style=for-the-badge)
+![Grade](https://img.shields.io/badge/grade-75%2F92_tests-brightgreen?style=for-the-badge)
 
 </div>
 
